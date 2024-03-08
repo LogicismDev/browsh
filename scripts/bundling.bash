@@ -53,9 +53,6 @@ function build_webextension_production() {
 function webextension_sign() {
 	local use_existing=$1
 	if [ "$use_existing" == "" ]; then
-		"$NODE_BIN"/web-ext sign --api-key "$MDN_USER" --api-secret "$MDN_KEY"
-		_rename_built_xpi
-	else
 		echo "Skipping signing, downloading existing webextension"
 		local base="https://github.com/browsh-org/browsh/releases/download"
 		curl -L \
